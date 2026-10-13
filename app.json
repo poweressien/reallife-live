@@ -1,0 +1,68 @@
+{
+  "expo": {
+    "name": "RealLife Live",
+    "slug": "reallife-live",
+    "scheme": "reallifelive",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "splash": {
+      "image": "./assets/splash-icon.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#0B0B12"
+    },
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "com.reallifelive.app",
+      "infoPlist": {
+        "NSCameraUsageDescription": "RealLife Live uses your camera so you can broadcast live video.",
+        "NSMicrophoneUsageDescription": "RealLife Live uses your microphone so viewers can hear your broadcast.",
+        "NSLocationWhenInUseUsageDescription": "RealLife Live uses your location only if you choose to share an approximate location with a broadcast.",
+        "UIBackgroundModes": ["audio"]
+      }
+    },
+    "android": {
+      "package": "com.reallifelive.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#0B0B12",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "permissions": [
+        "CAMERA",
+        "RECORD_AUDIO",
+        "MODIFY_AUDIO_SETTINGS",
+        "ACCESS_NETWORK_STATE",
+        "ACCESS_COARSE_LOCATION"
+      ],
+      "predictiveBackGestureEnabled": false
+    },
+    "plugins": [
+      "expo-router",
+      "expo-secure-store",
+      "expo-font",
+      "@livekit/react-native-expo-plugin",
+      "@config-plugins/react-native-webrtc",
+      [
+        "expo-camera",
+        {
+          "cameraPermission": "RealLife Live uses your camera so you can broadcast live video.",
+          "microphonePermission": "RealLife Live uses your microphone so viewers can hear your broadcast."
+        }
+      ],
+      ["expo-image-picker", { "photosPermission": "Choose a profile photo from your library." }],
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "RealLife Live uses your location only if you choose to share an approximate location with a broadcast."
+        }
+      ],
+      ["expo-build-properties", { "android": { "minSdkVersion": 24 } }]
+    ],
+    "experiments": { "typedRoutes": true },
+    "extra": { "router": {} }
+  }
+}
